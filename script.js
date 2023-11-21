@@ -1,8 +1,13 @@
+const msg = "Nada aqui...";
+
 function insert(num) {
   var numero = document.getElementById('resultado').innerHTML;
   var lastChar = numero.slice(-1);
   var operators = ['+', '-', '*', '/'];
 
+  // Verifica se há a mensagem na textArea, se tiver, o campo é limpo antes de prosseguir
+  if (numero == msg) numero = "";
+  
   //Verifica se o último caractere já é um operador e se o novo caractere também é um operador
   if (operators.includes(lastChar) && operators.includes(num)) {
       alert("Não spame os operadores, por gentileza! = ⓛ ω ⓛ = ");
@@ -22,5 +27,7 @@ function calcular(){
     var resultado = document.getElementById('resultado').innerHTML;
     if(resultado){
       document.getElementById('resultado').innerHTML = eval(resultado);
+    } else {
+      document.getElementById('resultado').innerHTML = msg;
     }
 }
